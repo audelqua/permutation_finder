@@ -21,7 +21,8 @@ const permutationFinder = (givenArray, currentPosition = 0, allPermutations = []
 
     // first it goes into else statement and start a forEach loop on first array of givenArray and immediately call permutationFinder again  and fill up 
     // onePermutation array with first item of childArray also we increase currentPosition by 1. the point here is that our permutationFinder call itself for times equal to the length of child array of givenArray
-    // this way we fill onePermutation with all first childItems of all childArray inside givenArray and as we reached into length of givenArray we push onePermutation into allPermutations array 
+    // As the first step we fill onePermutation with all first childItems of all childArray inside givenArray and as we reached into length of givenArray we push onePermutation into allPermutations array 
+    // Then we goes to pick up other items of last childArray by steps. this way we can find all permutations of givenArray
  
     if(currentPosition === givenArray.length) allPermutations.push(onePermutation)
     else givenArray[currentPosition].forEach(childItem => permutationFinder(givenArray, currentPosition + 1, allPermutations, [...onePermutation, childItem])) 
